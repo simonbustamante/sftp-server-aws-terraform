@@ -7,8 +7,8 @@ locals {
   entry_uat = "/zeus_rpa_sftp"
   target_uat = "/s3-hq-raw-uat-finan/zeus_rpa_sftp"
   pub_prv_key_uat = "sftp_user_key_hq_rpa_uat"
-  email_pub_prv_key_uat = "zeus-hq-rpa@millicom.com"
-  password_pub_prv_key_uat = "z3us-d3v3l0pm3nt2023!"
+  email_pub_prv_key_uat = "zeus-hq-rpa@youremail.com"
+  password_pub_prv_key_uat = "yourpass"
 }
 
 provider "aws" {

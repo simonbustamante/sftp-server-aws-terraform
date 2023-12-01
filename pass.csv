@@ -1,0 +1,14 @@
+DEV-URL: s-7d2a9219624c4b7db.server.transfer.us-east-1.amazonaws.com
+    User: sftp_zeus_user_hq_rpa_dev
+    Private Key: sftp_user_key_hq_rpa_dev
+    passwd: z3us-d3v3l0pm3nt2023!
+
+UAT-URL: s-c742934853e445289.server.transfer.us-east-1.amazonaws.com
+    User: sftp_zeus_user_hq_rpa_uat
+    Provate Key: sftp_user_key_hq_rpa_uat
+    passwd: z3us-d3v3l0pm3nt2023!
+
+PRD-URL: s-c5f728e99839479e8.server.transfer.us-east-1.amazonaws.com
+    User: sftp_zeus_user_hq_rpa_prd
+    Provate Key: sftp_user_key_hq_rpa_prd
+    passwd: z3us-d3v3l0pm3nt2023!

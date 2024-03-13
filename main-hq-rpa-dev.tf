@@ -1,5 +1,5 @@
 locals {
-  profile_dev = "507964037226_AWSAdministratorAccess"
+  profile_dev = "<account>"
   region_dev = "us-east-1"
   server_name_tag_dev = "sftp_zeus_server_hq_rpa_dev"
   role_dev = "arn:aws:iam::507964037226:role/svc-role-data-mic-development-integrations"

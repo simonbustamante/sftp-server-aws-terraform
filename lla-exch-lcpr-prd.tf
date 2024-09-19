@@ -7,7 +7,8 @@ locals {
   entry_prd = "/lcpr/plume"
   target_prd = "/source.lcpr.prod/lcpr/plume"
   pub_prv_key_prd = "sftp_lcpr_plume_prd_key"
-  password_pub_prv_key_prd = "LlaLcpr2024#$!"
+  password_pub_prv_key_prd = "LlaLcpr2024!#"
+  csv_output_file = "sftp_credentials_prd.csv"
 }
 
 provider "aws" {
@@ -80,3 +81,9 @@ resource "aws_transfer_ssh_key" "ssh_key_prd" {
     body      = local.public_key_prd
 }
 
+resource "null_resource" "export_to_csv_prd" {
+  provisioner "local-exec" {
+    command = "echo 'user_name,password,endpoint' > ${local.csv_output_file} && echo '${local.user_name_prd},${local.password_pub_prv_key_prd},sftp://${aws_transfer_server.sftp_server_prd.endpoint}' >> ${local.csv_output_file}"
+  }
+  depends_on = [aws_transfer_ssh_key.ssh_key_prd]
+}

@@ -44,8 +44,8 @@ resource "aws_transfer_user" "sftp_user_prd" {
     home_directory = local.target_prd
 
     tags = {
-        Name    = "sftp_user_prd"
-        Purpose = "SFTP access to zeus_sftp folder in s3-hq-anl-prd-ntwrk"
+        Name    = "sftp_lcpr_plume_prd"
+        Purpose = "SFTP access to Plume in source.lcpr.prod/lcpr/plume"
     }
 
     depends_on = [aws_transfer_server.sftp_server_prd]

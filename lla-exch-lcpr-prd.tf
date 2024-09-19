@@ -53,7 +53,7 @@ resource "aws_transfer_user" "sftp_user_prd" {
 
 resource "null_resource" "setstat_enable_prd" {
   provisioner "local-exec" {
-    command = "aws transfer update-server --server-id ${aws_transfer_server.sftp_server_prd.id} --protocol-details SetStatOption=ENABLE_NO_OP --profile ${local.profile_prd}"
+    command = "aws transfer update-server --region ${local.region_prd} --server-id ${aws_transfer_server.sftp_server_prd.id} --protocol-details SetStatOption=ENABLE_NO_OP --profile ${local.profile_prd}"
   }
   depends_on = [aws_transfer_server.sftp_server_prd]
 }

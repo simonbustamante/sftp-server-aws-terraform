@@ -63,3 +63,8 @@ To apply this Terraform configuration:
 - Be sure to review and understand each part of the configuration before applying it.
 - Consider security best practices, such as proper handling of SSH keys and passwords.
 
+## Connection Example 
+
+```
+sftp -i sftp_lcpr_plume_prd_key sftp_lcpr_plume_prd_user@s-xxxxxxxxxxx.server.transfer.us-east-1.amazonaws.com
+```

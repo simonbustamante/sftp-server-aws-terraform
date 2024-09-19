@@ -1,14 +1,13 @@
 locals {
-  profile_prd = "525196274797_AWSAdministratorAccess"
+  profile_prd = "876881173184_LLA-DL_DevOps"
   region_prd = "us-east-1"
-  server_name_tag_prd = "sftp_zeus_server_hq_rpa_prd"
-  role_prd = "arn:aws:iam::525196274797:role/svc-role-data-mic-development-integrations"
-  user_name_prd = "sftp_zeus_user_hq_rpa_prd"
-  entry_prd = "/zeus_rpa_sftp"
-  target_prd = "/s3-hq-raw-prd-finan/zeus_rpa_sftp"
-  pub_prv_key_prd = "sftp_user_key_hq_rpa_prd"
-  email_pub_prv_key_prd = "zeus-hq-rpa@youremail.com"
-  password_pub_prv_key_prd = "yourpass"
+  server_name_tag_prd = "sftp_lcpr_plume_prd"
+  role_prd = "arn:aws:iam::876881173184:role/lla-exch-lcpr-prod-transfer-family-role"
+  user_name_prd = "sftp_lcpr_plume_prd_user"
+  entry_prd = "/lcpr/plume"
+  target_prd = "/source.lcpr.prod/lcpr/plume"
+  pub_prv_key_prd = "sftp_lcpr_plume_prd_key"
+  password_pub_prv_key_prd = "LlaLcpr2024#$!"
 }
 
 provider "aws" {
@@ -61,7 +60,7 @@ resource "null_resource" "setstat_enable_prd" {
 
 resource "null_resource" "generate_public_private_keys_prd" {
   provisioner "local-exec" {
-    command = "if [ -f ${local.pub_prv_key_prd} ]; then rm -f ${local.pub_prv_key_prd}* ; fi; ssh-keygen -t rsa -b 4096 -C ${local.email_pub_prv_key_prd} -f ${local.pub_prv_key_prd} -N ${local.password_pub_prv_key_prd}"
+    command = "if [ -f ${local.pub_prv_key_prd} ]; then rm -f ${local.pub_prv_key_prd}* ; fi; ssh-keygen -t rsa -b 2048 -f ${local.pub_prv_key_prd} -N ${local.password_pub_prv_key_prd}"
   }
   triggers = {
     always_run = "${timestamp()}"

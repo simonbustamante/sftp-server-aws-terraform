@@ -1,0 +1,51 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::source.lcpr.prod",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "lcpr/plume/*"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::source.lcpr.prod/lcpr/plume",
+        "arn:aws:s3:::source.lcpr.prod/lcpr/plume/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "transfer:*",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "transfer.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribeAddresses"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
